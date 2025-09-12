@@ -2,7 +2,7 @@ from github import Github
 import os
 
 # токен GitHub (создаётся в Settings -> Developer settings -> PAT)
-g = Github("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")
+g = Github("")
 repo = g.get_user().get_repo("backend-Python")
 
 with open("issues.md", "r", encoding="utf-8") as f:
