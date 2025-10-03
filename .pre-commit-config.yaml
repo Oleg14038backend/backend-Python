@@ -1,0 +1,58 @@
+# .pre-commit-config.yaml
+# Рабочий набор хуков для Python-проекта
+
+repos:
+  # 1) Базовые универсальные хуки
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: check-yaml
+      - id: check-json
+
+  # 2) Ruff — быстрый линтер/фиксер
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        args: ["--fix"]   # автоисправления там, где возможно
+        additional_dependencies: []  # оставь пустым
+
+  # 3) Black — форматирование кода
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+        args: ["--line-length=88"]
+
+  # 4) isort — порядок импортов (профиль black)
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: ["--profile=black"]
+
+  # 5) mypy — типы (на папки src/ и app/, поправь при необходимости)
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.11.2
+    hooks:
+      - id: mypy
+        files: "^((src|app)/)"
+        args:
+          - "--ignore-missing-imports"
+          - "--install-types"
+          - "--non-interactive"
+
+  # ⚠️ Опционально: Gitleaks — ещё один мощный сканер секретов
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.4
+    hooks:
+      - id: gitleaks
+        args: ["protect", "--verbose", "--redact"]
+
+# Можно запускать отдельные хуки вручную:
+# pre-commit run ruff --all-files

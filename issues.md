@@ -51,4 +51,3 @@ Databases + Testing + DevOps: PostgreSQL, ORM, Redis, pytest, coverage, Docker C
 Advanced Topics: паттерны, архитектура, документация API, оптимизация, безопасность, data science
 
 ---
-
