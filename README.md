@@ -1,4 +1,6 @@
 # Backend project
+Структура Обучения
+
 📂 Oleg14038backend/
 │
 ├── py-basics-labs/           # 🧩 основа Python (01–13)
@@ -43,8 +45,32 @@
 │   ├── tests/
 │   └── manage.py
 │
-└── shared-libs/              # ⚙️ общие библиотеки и утилиты (модули, логеры, helpers)
-    ├── logging_utils/
+└── shared-libs/              # ⚙️ общие библиотеки и утилиты (модули, логеры, helpers)   ├── logging_utils/
     ├── config_tools/
     ├── async_helpers/
     └── README.md
+
+dev-automation-labs/
+├── powershell/          # 💻 скрипты для Windows (PowerShell)
+│   ├── create_repos.ps1
+│   ├── setup_env.ps1
+│   ├── git_tools.ps1
+│   └── docker_setup.ps1
+│
+├── bash/                # 🐧 скрипты для Linux/macOS
+│   ├── create_repos.sh
+│   ├── setup_env.sh
+│   └── deploy_fastapi.sh
+│
+├── python/              # 🐍 Python-утилиты автоматизации
+│   ├── generate_structure.py
+│   ├── github_issues_creator.py
+│   └── dockerfile_generator.py
+│
+├── docs/                # 📖 твои конспекты, объяснения
+│   ├── 01_git_basics.md
+│   ├── 02_powershell_basics.md
+│   ├── 03_automation_principles.md
+│   └── README.md
+│
+└── README.md
